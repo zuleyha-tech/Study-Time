@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyTime</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <!-- BARRE LATÉRALE -->
+    <aside class="barre-laterale">
+      <div class="logo">
+        <span class="logo-icone">🎓</span>
+        <div>
+          <p class="logo-titre">Study<span>Time</span></p>
+          <p class="logo-sous-titre">Petits efforts, grands rêves 💜</p>
+        </div>
+      </div>
+
+      <nav class="navigation">
+        <button class="nav-item actif" data-page="accueil">🏠 Accueil</button>
+        <button class="nav-item" data-page="sessions">⏱️ Mes sessions</button>
+        <button class="nav-item" data-page="objectifs">🎯 Mes objectifs</button>
+        <button class="nav-item" data-page="ressources">📚 Ressources</button>
+        <button class="nav-item" data-page="profil">👤 Mon profil</button>
+        <button class="nav-item" data-page="parametres">⚙️ Paramètres</button>
+      </nav>
+
+      <div class="barre-laterale-pied">
+        <p>Future développeuse ✨</p>
+        <p class="petite-note">Chaque minute te rapproche de tes rêves 💜</p>
+      </div>
+    </aside>
+
+    <div class="contenu-principal">
+
+      <header class="barre-superieure">
+        <div class="profil">
+          <div class="avatar" id="avatar-utilisateur">AT</div>
+          <div>
+            <p class="profil-nom" id="texte-bonjour">Bonjour 💜</p>
+            <p class="profil-sous" id="texte-profil-sous">L1 Informatique · SupDeco</p>
+          </div>
+        </div>
+
+        <p class="citation-du-jour" id="citation-du-jour"></p>
+
+        <div class="actions-barre">
+          <button id="bouton-notifications" class="bouton-icone" aria-label="Notifications">🔔</button>
+          <button id="bouton-mode-sombre" class="bouton-icone" aria-label="Mode sombre">🌙</button>
+        </div>
+
+        <div id="panneau-notifications" class="panneau-notifications" hidden></div>
+      </header>
+
+      <!-- PAGE ACCUEIL -->
+      <section id="page-accueil" class="page">
+
+        <div class="banniere">
+          <div>
+            <p class="banniere-code">&lt;/&gt;</p>
+            <h2>Code aujourd'hui,<br>solutions demain 💜</h2>
+          </div>
+          <svg class="banniere-illustration" viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="degradeEcran" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2a2750"/>
+                <stop offset="100%" stop-color="#1a1836"/>
+              </linearGradient>
+            </defs>
+
+            <circle cx="30" cy="24" r="2.5" fill="#f47c9c"/>
+            <circle cx="238" cy="30" r="2" fill="#6c63f2"/>
+            <path d="M232 50 l3 6 l6 3 l-6 3 l-3 6 l-3 -6 l-6 -3 l6 -3 Z" fill="#f7d9e6"/>
+
+            <rect x="6" y="140" width="248" height="7" rx="3.5" fill="#d9d3fb"/>
+            <!-- Pile de livres avec petits titres -->
+            <rect x="16" y="100" width="50" height="13" rx="2" fill="#6c63f2"/>
+            <text x="22" y="109" font-family="monospace" font-size="6" fill="#e8e5ff">Python</text>
+            <rect x="18" y="87" width="46" height="13" rx="2" fill="#f47c9c"/>
+            <text x="24" y="96" font-family="monospace" font-size="6" fill="#fff0f4">C</text>
+            <rect x="16" y="74" width="50" height="13" rx="2" fill="#4caf7d"/>
+            <text x="22" y="83" font-family="monospace" font-size="6" fill="#eafff3">Web</text>
+            <!-- Pot de crayons -->
+            <rect x="72" y="108" width="16" height="20" rx="3" fill="#8b5cf6"/>
+            <line x1="76" y1="108" x2="73" y2="86" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+            <line x1="81" y1="108" x2="84" y2="84" stroke="#f47c9c" stroke-width="3" stroke-linecap="round"/>
+            <line x1="86" y1="108" x2="89" y2="90" stroke="#6c63f2" stroke-width="3" stroke-linecap="round"/>
+            <!-- Plante en pot -->
+            <rect x="206" y="112" width="30" height="26" rx="5" fill="#8b5cf6"/>
+            <path d="M221 112 q-16 -6 -18 -26 q18 2 20 18 Z" fill="#4caf7d"/>
+            <path d="M221 112 q16 -10 14 -30 q-18 4 -18 20 Z" fill="#5fc493"/>
+            <path d="M221 112 q-2 -14 4 -22 q6 8 2 22 Z" fill="#3f9c66"/>
+            <!-- Ordinateur portable -->
+            <rect x="96" y="82" width="96" height="58" rx="7" fill="url(#degradeEcran)"/>
+            <rect x="103" y="88" width="82" height="44" rx="3" fill="#241f4d"/>
+            <text x="109" y="102" font-family="monospace" font-size="7.5" fill="#a89bff">&lt;code&gt;</text>
+            <text x="113" y="112" font-family="monospace" font-size="7.5" fill="#f7a8c4">learn();</text>
+            <text x="113" y="122" font-family="monospace" font-size="7.5" fill="#8ee6b8">grow();</text>
+            <text x="109" y="132" font-family="monospace" font-size="7.5" fill="#a89bff">&lt;/code&gt;</text>
+            <path d="M82 140 L206 140 L194 151 L94 151 Z" fill="#312d5c"/>
+            <rect x="130" y="145" width="28" height="3" rx="1.5" fill="#463f80"/>
+            <!-- Tasse de café avec vapeur -->
+            <rect x="158" y="116" width="24" height="20" rx="4" fill="#fdfdfd"/>
+            <ellipse cx="170" cy="116" rx="12" ry="3" fill="#6f4a2c"/>
+            <path d="M182 120 q10 0 10 8 q0 8 -10 8" stroke="#fdfdfd" stroke-width="3.5" fill="none"/>
+            <path d="M163 104 q3 -6 0 -11" stroke="#d9d3fb" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M172 104 q3 -6 0 -11" stroke="#d9d3fb" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="grille-accueil">
+
+          <div class="panneau-minuteur">
+            <h2>StudyTime</h2>
+            <p class="sous-titre-panneau">Planifie tes sessions de révision et suis ton temps d'étude.</p>
+
+            <div class="champs-minuteur">
+              <div class="champ">
+                <label for="select-matiere">📖 Matière</label>
+                <select id="select-matiere"></select>
+              </div>
+              <div class="champ">
+                <label for="select-chapitre">📄 Chapitre à réviser</label>
+                <select id="select-chapitre"></select>
+              </div>
+              <div class="champ">
+                <label for="input-duree">⏱️ Durée (minutes)</label>
+                <input type="number" id="input-duree" value="25" min="1" max="120">
+              </div>
+            </div>
+
+            <p id="affichage-temps">00:00</p>
+            <p class="minuteur-statut" id="minuteur-statut">Prêt(e) ?</p>
+
+            <div class="boutons-minuteur">
+              <button id="bouton-demarrer" class="bouton-principal">▶ Démarrer</button>
+              <button id="bouton-pause" class="bouton-pause">⏸ Pause</button>
+              <button id="bouton-reinitialiser" class="bouton-secondaire">↺ Réinitialiser</button>
+            </div>
+          </div>
+
+          <aside class="colonne-droite">
+
+            <div class="carte">
+              <p class="carte-titre">📊 Ma progression</p>
+              <div class="anneau-progression" id="anneau-objectif">
+                <span id="pourcentage-objectif">0%</span>
+              </div>
+              <p class="carte-detail">Objectif du mois</p>
+              <p class="carte-valeur" id="detail-objectif">0 / 0 heures</p>
+            </div>
+
+            <div class="carte">
+              <p class="carte-titre">🔥 Série d'aujourd'hui</p>
+              <p class="serie-nombre"><span id="nombre-serie">0</span> jour(s)</p>
+              <p class="carte-detail" id="message-serie">Lance ta première session !</p>
+            </div>
+
+            <div class="carte">
+              <p class="carte-titre">⏱️ Mes dernières sessions</p>
+              <ul id="liste-dernieres-sessions" class="liste-mini"></ul>
+            </div>
+
+          </aside>
+
+        </div>
+      </section>
+      <!-- PAGE SESSIONS -->
+      <section id="page-sessions" class="page" hidden>
+        <h2>Mes sessions</h2>
+
+        <div class="stats-globales">
+          <div class="carte carte-stat">
+            <p class="carte-valeur-grande" id="temps-total">0</p>
+            <p class="carte-detail">Minutes au total</p>
+          </div>
+          <div class="carte carte-stat">
+            <p class="carte-valeur-grande" id="nombre-sessions">0</p>
+            <p class="carte-detail">Sessions terminées</p>
+          </div>
+        </div>
+
+        <ul id="liste-sessions" class="liste-complete"></ul>
+      </section>
+      <!-- PAGE OBJECTIFS -->
+      <section id="page-objectifs" class="page" hidden>
+        <h2>Mes objectifs</h2>
+
+        <div class="carte">
+          <label for="input-objectif">Objectif mensuel (en heures)</label>
+          <input type="number" id="input-objectif" min="1" max="200" value="75">
+          <button id="bouton-enregistrer-objectif" class="bouton-principal">Enregistrer l'objectif</button>
+        </div>
+
+        <div class="carte carte-objectif-detail">
+          <div class="anneau-progression anneau-grand" id="anneau-objectif-detail">
+            <span id="pourcentage-objectif-detail">0%</span>
+          </div>
+          <p id="detail-objectif-complet">0 heure(s) sur 0 ce mois-ci</p>
+        </div>
+      </section>
+      <!-- PAGE RESSOURCES -->
+      <section id="page-ressources" class="page" hidden>
+        <h2>Ressources</h2>
+        <p class="sous-titre-panneau">Les chapitres disponibles pour chaque matière.</p>
+        <div id="grille-ressources" class="grille-ressources"></div>
+      </section>
+      <!-- PAGE PROFIL -->
+      <section id="page-profil" class="page" hidden>
+        <h2>Mon profil</h2>
+
+        <div id="bandeau-bienvenue" class="carte bandeau-bienvenue" hidden>
+          <p class="bandeau-titre">🎉 Bienvenue, <span id="bienvenue-prenom"></span> !</p>
+          <p>Ton profil est enregistré. Bonnes révisions sur StudyTime 💜</p>
+        </div>
+
+        <div class="carte">
+          <p class="carte-titre">Inscription</p>
+          <form id="formulaire-profil">
+            <div class="champs-minuteur champs-profil">
+              <div class="champ">
+                <label for="input-prenom">Prénom</label>
+                <input type="text" id="input-prenom" required minlength="2">
+              </div>
+              <div class="champ">
+                <label for="input-nom">Nom</label>
+                <input type="text" id="input-nom" required minlength="2">
+              </div>
+              <div class="champ">
+                <label for="select-filiere">Filière</label>
+                <select id="select-filiere">
+                  <option value="Informatique">Informatique</option>
+                  <option value="Gestion">Gestion</option>
+                  <option value="Transport et Logistique">Transport et Logistique</option>
+                  <option value="Ressources Humaines">Ressources Humaines</option>
+                </select>
+              </div>
+              <div class="champ">
+                <label for="select-niveau">Niveau</label>
+                <select id="select-niveau">
+                  <option value="L1">L1</option>
+                  <option value="L2">L2</option>
+                  <option value="L3">L3</option>
+                </select>
+              </div>
+              <div class="champ" id="champ-specialite" hidden>
+                <label for="select-specialite">Spécialité</label>
+                <select id="select-specialite"></select>
+              </div>
+              <div class="champ">
+                <label for="input-ecole">École</label>
+                <input type="text" id="input-ecole" placeholder="Ex. SupDeco">
+              </div>
+              <div class="champ">
+                <label for="input-email">Adresse e-mail</label>
+                <input type="email" id="input-email" required>
+              </div>
+              <div class="champ">
+                <label for="select-genre">Genre</label>
+                <select id="select-genre">
+                  <option value="femme">Femme</option>
+                  <option value="homme">Homme</option>
+                </select>
+              </div>
+              <div class="champ">
+                <label for="select-teint">Teint de l'avatar</label>
+                <select id="select-teint">
+                  <option value="clair">Clair</option>
+                  <option value="marron">Marron</option>
+                  <option value="noir">Noir</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="bouton-principal">✅ Valider mon profil</button>
+          </form>
+        </div>
+      </section>
+      <!-- PAGE PARAMÈTRES -->
+      <section id="page-parametres" class="page" hidden>
+        <h2>Paramètres</h2>
+
+        <div class="carte">
+          <p class="carte-titre">Apparence</p>
+          <p class="carte-detail">Bascule entre le mode clair et le mode sombre.</p>
+          <button id="bouton-mode-sombre-parametres" class="bouton-secondaire">🌙 Activer le mode sombre</button>
+        </div>
+
+        <div class="carte">
+          <p class="carte-titre">Données</p>
+          <p class="carte-detail">Réinitialise toutes tes sessions enregistrées.</p>
+          <button id="bouton-reinitialiser-donnees" class="bouton-danger">🗑️ Réinitialiser mes données</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
